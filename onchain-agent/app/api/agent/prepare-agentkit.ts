@@ -9,6 +9,8 @@ import {
   wethActionProvider,
 } from "@coinbase/agentkit";
 import * as fs from "fs";
+import { tradingToolsActionProvider } from "./actions/tradingTools-copy";
+
 
 /**
  * AgentKit Integration Route
@@ -85,14 +87,16 @@ export async function prepareAgentkitAndWalletProvider(): Promise<{
     });
 
     // Initialize AgentKit: https://docs.cdp.coinbase.com/agentkit/docs/agent-actions
+    //////////
     const agentkit = await AgentKit.from({
       walletProvider,
       actionProviders: [
-        wethActionProvider(),
-        pythActionProvider(),
+        // wethActionProvider(),
+        // pythActionProvider(),
         walletActionProvider(),
-        erc20ActionProvider(),
-        cdpApiActionProvider(),
+        // erc20ActionProvider(),
+        // cdpApiActionProvider(),
+        tradingToolsActionProvider(),
       ],
     });
 
