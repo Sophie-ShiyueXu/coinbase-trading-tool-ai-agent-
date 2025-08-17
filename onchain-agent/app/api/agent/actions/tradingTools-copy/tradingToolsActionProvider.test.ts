@@ -1,0 +1,21 @@
+/**
+ * TradingToolsActionProvider Tests
+ */
+
+import { TradingToolsActionProvider } from "./tradingToolsActionProvider";
+import { Network } from "../../network";
+
+describe("TradingToolsActionProvider", () => {
+  // default setup: instantiate the provider
+  const provider = new TradingToolsActionProvider();
+
+  it("should support all network types", () => {
+    expect(
+      provider.supportsNetwork({
+        networkId: "any-network",
+        protocolFamily: "any-protocol",
+        chainId: "any-chain-id",
+      } as Network),
+    ).toBe(true);
+  });
+});
